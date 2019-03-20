@@ -65,6 +65,8 @@ relations:
   - rabbitmq-server:amqp
 - - masakari:identity-service
   - keystone:identity-service
+- - masakari:ha
+  - hacluster:ha
 - - glance:ceph
   - ceph-mon:client
 - - ceph-mon:osd
@@ -83,6 +85,10 @@ relations:
   - masakari-monitors:identity-credentials
 - - vault:shared-db
   - mysql:shared-db
+- - nova-compute:juju-info
+  - pacemaker-remote:juju-info
+- - hacluster:pacemaker-remote
+  - pacemaker-remote:pacemaker-remote
 applications:
   glance:
     charm: cs:~openstack-charmers-next/glance
@@ -135,7 +141,7 @@ applications:
       bridge-mappings: physnet1:br-ex
       openstack-origin: cloud:bionic-rocky
       worker-multiplier: 0.25
-    to: 
+    to:
     - '0'
   neutron-openvswitch:
     charm: cs:~openstack-charmers-next/neutron-openvswitch
@@ -163,17 +169,17 @@ applications:
       debug: true
       cpu-model: kvm64
       cpu-mode: custom
-    to: 
+    to:
     - '1'
     - '2'
     - '3'
   rabbitmq-server:
     charm: cs:~openstack-charmers-next/rabbitmq-server
     num_units: 1
-    to: 
+    to:
     - lxd:0
   masakari:
-    charm: cs:~gnuoy/masakari
+    charm: cs:~gnuoy/masakari-3
     series: bionic
     num_units: 1
     options:
@@ -204,14 +210,18 @@ applications:
   cinder-ceph:
     charm: cinder-ceph
   masakari-monitors:
-    charm: cs:~gnuoy/masakari-monitors
+    charm: cs:~gnuoy/masakari-monitors-5
+    series: bionic
+  pacemaker-remote:
+    charm: cs:~gnuoy/pacemaker-remote-7
     series: bionic
   hacluster:
-    charm: cs:~gnuoy/hacluster
+    charm: cs:~gnuoy/hacluster-17
     options:
       corosync_transport: unicast
       cluster_count: 3
   vault:
     charm: cs:~openstack-charmers-next/vault
+    num_units: 1
     to:
     - lxd:3
