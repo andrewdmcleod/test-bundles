@@ -79,8 +79,6 @@ relations:
   - nova-compute:ceph-access
 - - nova-compute:juju-info
   - masakari-monitors:container
-- - nova-compute:juju-info
-  - hacluster:juju-info
 - - keystone:identity-credentials
   - masakari-monitors:identity-credentials
 - - vault:shared-db
@@ -179,7 +177,7 @@ applications:
     to:
     - lxd:0
   masakari:
-    charm: cs:~gnuoy/masakari-3
+    charm: cs:~gnuoy/masakari-5
     series: bionic
     num_units: 1
     options:
