@@ -183,7 +183,9 @@ applications:
     options:
       openstack-origin: cloud:bionic-rocky/proposed
     to:
-    - lxd:3
+    - lxd:0
+    - lxd:1
+    - lxd:2
   ceph-mon:
     charm: ceph-mon
     num_units: 3
