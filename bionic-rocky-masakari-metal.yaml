@@ -221,6 +221,8 @@ applications:
     options:
       corosync_transport: unicast
       cluster_count: 3
+      maas_url: http://10.245.168.6/MAAS
+      maas_credentials: T0P_SEKRET
   vault:
     charm: cs:~openstack-charmers-next/vault
     num_units: 1
