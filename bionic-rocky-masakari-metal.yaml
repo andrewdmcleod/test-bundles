@@ -165,8 +165,6 @@ applications:
       migration-auth-type: ssh
       openstack-origin: cloud:bionic-rocky
       debug: true
-      cpu-model: kvm64
-      cpu-mode: custom
     to:
     - '1'
     - '2'
@@ -219,7 +217,7 @@ applications:
       enable-stonith: True
       enable-resources: False
   hacluster:
-    charm: cs:~gnuoy/hacluster-28
+    charm: cs:~gnuoy/hacluster-33
     options:
       corosync_transport: unicast
       cluster_count: 3
