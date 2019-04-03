@@ -217,7 +217,7 @@ applications:
       enable-stonith: True
       enable-resources: False
   hacluster:
-    charm: cs:~gnuoy/hacluster-35
+    charm: cs:~gnuoy/hacluster-36
     options:
       corosync_transport: unicast
       cluster_count: 3
