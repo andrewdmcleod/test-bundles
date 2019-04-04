@@ -87,8 +87,6 @@ relations:
   - pacemaker-remote:juju-info
 - - hacluster:pacemaker-remote
   - pacemaker-remote:pacemaker-remote
-- - vault:shared-db
-  - mysql:shared-db
 - - vault:certificates
   - keystone:certificates
 - - vault:certificates
