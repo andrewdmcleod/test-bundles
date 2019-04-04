@@ -87,6 +87,20 @@ relations:
   - pacemaker-remote:juju-info
 - - hacluster:pacemaker-remote
   - pacemaker-remote:pacemaker-remote
+- - vault:shared-db
+  - mysql:shared-db
+- - vault:certificates
+  - keystone:certificates
+- - vault:certificates
+  - neutron-api:certificates
+- - vault:certificates
+  - cinder:certificates
+- - vault:certificates
+  - glance:certificates
+- - vault:certificates
+  - nova-cloud-controller:certificates
+- - vault:certificates
+  - masakari:certificates
 applications:
   glance:
     charm: cs:~openstack-charmers-next/glance
