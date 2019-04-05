@@ -7,6 +7,8 @@ machines:
     series: bionic
   '3':
     series: bionic
+  '4':
+    series: bionic
 series: bionic
 relations:
 - - nova-compute:amqp
@@ -125,7 +127,7 @@ applications:
       openstack-origin: cloud:bionic-rocky
       worker-multiplier: 0.25
     to:
-    - lxd:0
+    - lxd:4
   mysql:
     charm: cs:~openstack-charmers-next/percona-cluster
     num_units: 1
@@ -143,7 +145,7 @@ applications:
       openstack-origin: cloud:bionic-rocky
       worker-multiplier: 0.25
     to:
-    - lxd:0
+    - lxd:4
   neutron-gateway:
     charm: cs:~openstack-charmers-next/neutron-gateway
     num_units: 1
@@ -165,7 +167,7 @@ applications:
       worker-multiplier: 0.25
       debug: true
     to:
-    - lxd:0
+    - lxd:4
   nova-compute:
     charm: cs:~openstack-charmers-next/nova-compute
     num_units: 3
@@ -185,7 +187,7 @@ applications:
     charm: cs:~openstack-charmers-next/rabbitmq-server
     num_units: 1
     to:
-    - lxd:0
+    - lxd:4
   masakari:
     charm: cs:~gnuoy/masakari-5
     series: bionic
